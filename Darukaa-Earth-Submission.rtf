@@ -1,0 +1,37 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}{\f1 Consolas;}}
+\f0\fs32\b Darukaa.Earth - Project Submission\b0\fs22\par
+\par
+\b 1. GitHub repository\b0\par
+https://github.com/r-darshini-7/Eco-World\par
+Branch: main\par
+\par
+\b 2. Live demo\b0\par
+No hosted live demo is currently available. The application can be reviewed locally with Docker Compose:\par
+Frontend: http://localhost:5173\par
+Backend API: http://localhost:8000\par
+Health check: http://localhost:8000/health\par
+\par
+\b 3. README overview\b0\par
+\b Architecture\b0\par
+Darukaa.Earth is a full-stack geospatial carbon and biodiversity intelligence platform. The frontend uses React, Vite, and TypeScript. The backend uses FastAPI, SQLAlchemy, and Alembic. Docker Compose runs the frontend, backend, and PostgreSQL/PostGIS database services. GIS support is designed around Mapbox GL JS, Mapbox Draw, GeoAlchemy2, and GeoJSON workflows.\par
+\par
+\b Database and schema\b0\par
+PostgreSQL 16 with PostGIS stores production data. SQLAlchemy models define users, projects, sites, and related application data. Alembic migrations are located in backend/migrations/versions, including the initial schema and native PostGIS geometry migration. The test path can use SQLite and automatically bootstraps tables.\par
+\par
+\b Local setup\b0\par
+1. Clone the repository.\par
+2. Copy .env.example to .env and replace placeholder secrets and provider tokens as needed.\par
+3. Run docker compose up --build from the repository root.\par
+4. For manual backend setup, run alembic upgrade head from backend, then start the FastAPI application.\par
+5. From frontend, install dependencies with npm install and use npm run dev.\par
+6. Run backend tests with pytest. Run frontend checks with npm run lint and npm run build.\par
+\par
+\b CI/CD\b0\par
+The repository is structured for GitHub Actions, but no workflow files are currently present. Deployment targets described by the project are Vercel for the frontend and Render or Railway-compatible hosting for the backend. CI/CD workflows for linting, testing, and deployment remain to be added.\par
+\par
+\b Reviewer notes\b0\par
+No hosted credentials are included. Local Docker Compose uses the development database values darukaa/darukaa for the darukaa database only. The .env.example file contains placeholders for JWT_SECRET_KEY, MAPBOX_ACCESS_TOKEN, and AI_API_KEY; replace them locally and do not commit real secrets.\par
+\par
+The current repository README contains the longer project overview, feature list, migration details, testing commands, limitations, and future enhancements.\par
+}
